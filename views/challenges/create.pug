@@ -22,8 +22,8 @@ block content
       | Teilnehmer
       br
       for participantTag in participantTags
-        label(for='participantTags')
+        label(for=participantTag)
           | #{participantTag}
-          input(type='checkbox', id='participantTags[]', name=participantTag, value=participantTag)
+          input(type='checkbox', id=participantTag, name=participantTag, value=participantTag)
 
     input.form-control(type='submit', name='create')
