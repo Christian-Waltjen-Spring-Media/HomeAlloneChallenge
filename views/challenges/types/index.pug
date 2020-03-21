@@ -7,18 +7,18 @@ block content
     br
     h3(class="center padding") #{user.profile.name}
     br
-    li(class="grid-list-item profile-stats"): h4 76
-    li(class="grid-list-item profile-stats"): h4 237
-    li(class="grid-list-item profile-stats"): h4 30
+    ul(class="grid-list")
+      li(class="grid-list-item profile-stats"): h4 76
+      li(class="grid-list-item profile-stats"): h4 237
+      li(class="grid-list-item profile-stats"): h4 30
     br
-    li(class="grid-list-item profile-stats"): h4 Follower
-    li(class="grid-list-item profile-stats"): h4 Points
-    li(class="grid-list-item profile-stats"): h4 Challenges
+    ul(class="grid-list")
+      li(class="grid-list-item profile-stats"): h4 Follower
+      li(class="grid-list-item profile-stats"): h4 Points
+      li(class="grid-list-item profile-stats"): h4 Challenges
     br
     br
-    ul
-    for val, idx in fileList
-        li(class="grid-list-item"): img(src= '../' + folder + '/' + val,
-                width=352)
+    ul(class="grid-list"): for val, idx in fileList
+        li(class="grid-list-item"): img(src= '../' + folder + '/' + val)
     else
         strong Empty

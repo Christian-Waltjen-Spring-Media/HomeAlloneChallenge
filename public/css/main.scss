@@ -111,6 +111,23 @@ $enable-gradients: true;
   )
 }
 
+.profile-stats {
+  width:30%;
+  text-align:center;
+}
+.grid-list {
+  width: 100%;
+  background: #ccc;
+}
+.grid-list-item{
+  float: left;
+  margin: 4px;
+  width: 30%;
+  img {
+    width: 100%;
+  }
+}
+
 /*
 * Solves Bootstrap 4 issue
 * https://github.com/twbs/bootstrap/issues/25654
@@ -124,6 +141,20 @@ $enable-gradients: true;
     padding-left: 15px !important;
     padding-right: 15px !important;
   }
+
+  .profile-stats {
+    width:31%;
+    text-align:center;
+  }
+  .grid-list-item{
+    float: left;
+    margin: 4px;
+    width: 31%;
+    img {
+      width: 100%;
+    }
+  }
+
 }
 
 /* Styles in md disposition and up */
@@ -134,6 +165,20 @@ $enable-gradients: true;
     padding-left: 15px !important;
     padding-right: 15px !important;
   }
+
+  .profile-stats {
+    width:30%;
+    text-align:center;
+  }
+  .grid-list-item{
+    float: left;
+    margin: 8px;
+    width: 30%;
+  }
+  .grid-list-item img {
+    width: 100%;
+  }
+
 }
 
 /* Styles in lg disposition and up */
@@ -143,6 +188,20 @@ $enable-gradients: true;
     padding-left: 15px !important;
     padding-right: 15px !important;
   }
+
+  .profile-stats {
+    width:30%;
+    text-align:center;
+  }
+  .grid-list-item{
+    float: left;
+    margin: 8px;
+    width: 30%;
+  }
+  .grid-list-item img {
+    width: 100%;
+  }
+
 }
 
 // Footer
@@ -236,11 +295,3 @@ footer a {
   border-radius: 50%;
 }
 
-.grid-list-item{
-  float: left;
-  margin: 8px;
-}
-.profile-stats {
-  width:352px;
-  text-align:center;
-}
