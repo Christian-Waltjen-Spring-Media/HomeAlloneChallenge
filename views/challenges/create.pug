@@ -5,6 +5,19 @@ block content
     h3 Challenge Create
 
   form(method='POST')
-    input(type='hidden', name='_csrf', value=_csrf)
-    input(type='text', name='title')
-    input(type='submit', name='create')
+    input.form-control(type='hidden', name='_csrf', value=_csrf)
+    label(for='title')
+      | Title
+      input.form-control(type='text', name='title', id="title")
+    label(for='description')
+      | Description
+      input.form-control(type='textarea', name='description', id="description")
+    label(for='type')
+      | Type
+      input.form-control(type='select', name='type', id="type")
+
+    select.form-control(name='type')
+      for challengeType in challengeTypes
+        option(value=challengeType.id)= challengeType.name
+
+    input.form-control(type='submit', name='create')
