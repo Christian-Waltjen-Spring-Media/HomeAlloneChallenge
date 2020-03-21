@@ -1,3 +1,4 @@
+const fs = require('fs');
 const challengeTypes = require('../models/challenge/Types');
 const participantTags = require('../models/challenge/ParticipantTags');
 const Challenge = require('../models/Challenge');
@@ -24,7 +25,6 @@ exports.getCreateChallenge = (req, res) => {
 };
 
 exports.postCreateChallenge = async (req, res) => {
-
   const challenge = new Challenge({
     ...req.body,
     score: 100,
@@ -51,11 +51,28 @@ exports.getChallenge = async (req, res) => {
   });
 };
 
-exports.postSolveChallenge = async (req, res) => {
-  const challenge = Challenge.find({ _id: req.params.challengeId });
+/**
+ * GET /
+ */
+exports.uploads = (req, res) => {
+  const challengeFolderPath = './uploads/';
+  fs.readdir(challengeFolderPath, (err, files) => {
+    if (err) return;
+    files = files.filter((item) => !(/(^|\/)\.[^\/\.]/g).test(item));
+    res.render('challenges/types', {
+      title: 'Challenge Results',
+      fileList: files
+    });
+  });
+};
 
-  challenge.challengers.push(req.user._id);
-  challenge.save();
+exports.postSolveChallenge = (req, res) => {
+  // const challenge = Challenge.find({ _id: req.params.challengeId });
+  // challenge.challengers.push(req.user._id);
+  // challenge.save();
+  // res.redirect(302, `/challenge/${challenge._id}`);
 
-  res.redirect(302, `/challenge/${challenge._id}`);
+  const url = '/challenges/types';
+  req.flash('success', { msg: 'File was uploaded successfully.' });
+  res.redirect(302, url);
 };

@@ -3,9 +3,11 @@ extends ../../layout
 block content
   .pb-2.mt-2.mb-4.border-bottom
     h3 Challenge #{challenge.title}
-
-  form(method='POST')
-    input.form-control(type='hidden', name='_csrf', value=_csrf)
-    | UploadForm Here
-
-    input.form-control(type='submit', name='create')
+        .row
+            .col-md-6
+              form(role='form', enctype='multipart/form-data', method='POST')
+                input(type='hidden', name='_csrf', value=_csrf)
+                .form-group
+                  label.col-form-label.font-weight-bold choose file
+                  input(type='file', name='myFile')
+                button.btn.btn-primary(type='submit') Submit

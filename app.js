@@ -34,8 +34,6 @@ const userController = require('./controllers/user');
 const apiController = require('./controllers/api');
 const contactController = require('./controllers/contact');
 const challengesController = require('./controllers/challenges');
-const fileUploadController = require('./controllers/fileupload');
-const resultsController = require('./controllers/results');
 
 /**
  * API keys and Passport configuration.
@@ -151,14 +149,12 @@ app.post('/account/delete', passportConfig.isAuthenticated, userController.postD
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
 
 app.get('/challenges', challengesController.index);
-app.get('/challenge', challengesController.getCreateChallenge);
-app.post('/challenge', challengesController.postCreateChallenge);
-app.get('/challenge/:challengeId', challengesController.getChallenge);
-app.post('/challenge/:challengeId', challengesController.postSolveChallenge);
+app.get('/challenge', passportConfig.isAuthenticated, challengesController.getCreateChallenge);
+app.post('/challenge', passportConfig.isAuthenticated, challengesController.postCreateChallenge);
+app.get('/challenge/:challengeId', passportConfig.isAuthenticated, lusca({ csrf: true }), challengesController.getChallenge);
+app.post('/challenge/:challengeId', upload.single('myFile'), lusca({ csrf: true }), challengesController.postSolveChallenge);
+app.get('/challenges/types', passportConfig.isAuthenticated, challengesController.uploads);
 
-app.get('/file', passportConfig.isAuthenticated, lusca({ csrf: true }), fileUploadController.index);
-app.post('/file/', passportConfig.isAuthenticated, upload.single('myFile'), lusca({ csrf: true }), fileUploadController.postUploadFile);
-app.get('/results', passportConfig.isAuthenticated, resultsController.index);
 
 /**
  * API examples routes.

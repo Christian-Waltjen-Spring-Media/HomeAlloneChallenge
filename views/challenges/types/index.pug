@@ -1,0 +1,12 @@
+extends ../../layout
+
+block content
+  .pb-2.mt-2.mb-4.border-bottom
+    h3 #{title}
+    - const fileArray = files
+    ul
+    for val, idx in fileList
+        li: img(src= '../../../' + val,
+                width=360)
+    else
+        strong Empty
