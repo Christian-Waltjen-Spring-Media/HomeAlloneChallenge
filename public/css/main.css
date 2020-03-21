@@ -1,3 +1,4 @@
+@import url("http://fonts.googleapis.com/css?family=Baloo+2:400,700");
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
@@ -50,7 +51,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-family: "Baloo 2", Arial, sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -297,7 +298,7 @@ template {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.5rem;
-  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-family: "Baloo 2", Arial, sans-serif;
   font-weight: 500;
   line-height: 1.2; }
 
@@ -4264,7 +4265,7 @@ a.close.disabled {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-family: "Baloo 2", Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -4349,7 +4350,7 @@ a.close.disabled {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-family: "Baloo 2", Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -13251,9 +13252,10 @@ html {
   min-height: 100%; }
 
 body {
-  padding-top: 80px;
+  padding-top: 120px;
   margin-bottom: 75px;
-  font-size: 14px; }
+  font-size: 14px;
+  background-color: #000A3A; }
 
 li {
   list-style-type: none; }
@@ -13278,12 +13280,17 @@ textarea {
 .navbar {
   padding-top: 0px;
   padding-bottom: 0px;
-  margin-bottom: 20px;
-  display: block; }
+  margin-bottom: 20px; }
+  .navbar.navbar-center .container {
+    display: inline-block; }
+    .navbar.navbar-center .container .navbar-brand {
+      margin: 35px -35px 15px 0; }
 
 .navbar-brand {
-  font-size: 18px;
-  float: left; }
+  font-size: 35px;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 10px; }
 
 .navbar-toggler {
   position: relative;

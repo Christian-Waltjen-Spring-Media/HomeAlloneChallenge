@@ -11,9 +11,9 @@ services:
     environment:
      - MONGODB_URI=mongodb://mongo:27017/homeAloneChallenge
     links:
-     - mongo 
+     - mongo
     depends_on: 
-     - mongo 
+     - mongo
     volumes:
      - .:/starter
      - /starter/node_modules
