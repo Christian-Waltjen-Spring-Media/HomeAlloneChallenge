@@ -55,13 +55,15 @@ exports.getChallenge = async (req, res) => {
  * GET /
  */
 exports.uploads = (req, res) => {
-  const challengeFolderPath = './uploads/';
+  const challengeFolderPath = `./uploads/${req.user._id}`;
   fs.readdir(challengeFolderPath, (err, files) => {
     if (err) return;
     files = files.filter((item) => !(/(^|\/)\.[^\/\.]/g).test(item));
     res.render('challenges/types', {
-      title: 'Challenge Results',
-      fileList: files
+      title: 'Your Challenge Results',
+      fileList: files,
+      folder: req.user._id,
+      profile: req.user
     });
   });
 };
@@ -72,7 +74,16 @@ exports.postSolveChallenge = (req, res) => {
   // challenge.save();
   // res.redirect(302, `/challenge/${challenge._id}`);
 
-  const url = '/challenges/types';
-  req.flash('success', { msg: 'File was uploaded successfully.' });
-  res.redirect(302, url);
+  const oldFilePath = req.file.path;
+  const challengeFolderPath = `./uploads/${req.user._id}`;
+  if (!fs.existsSync(challengeFolderPath)) {
+    fs.mkdirSync(challengeFolderPath);
+  }
+  const newFilePath = `${challengeFolderPath}/${req.file.filename}`;
+
+  fs.rename(oldFilePath, newFilePath, function () {
+    const url = '/challenges/types';
+    req.flash('success', { msg: 'File was uploaded successfully.' });
+    res.redirect(302, url);
+  });
 };

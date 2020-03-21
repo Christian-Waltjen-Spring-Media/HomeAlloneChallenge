@@ -13399,3 +13399,24 @@ footer a {
   color: #FFF !important; }
   .btn-twitch:hover, .btn-twitch:active {
     background-color: #503484; }
+
+.padding {
+  padding: 8px; }
+
+.center {
+  text-align: center; }
+
+.avatar {
+  display: block;
+  width: 160px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%; }
+
+.grid-list-item {
+  float: left;
+  margin: 8px; }
+
+.profile-stats {
+  width: 352px;
+  text-align: center; }

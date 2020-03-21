@@ -2,11 +2,23 @@ extends ../../layout
 
 block content
   .pb-2.mt-2.mb-4.border-bottom
-    h3 #{title}
-    - const fileArray = files
+  - const avatar = user.profile.picture
+    img(class='avatar', src= avatar)
+    br
+    h3(class="center padding") #{user.profile.name}
+    br
+    li(class="grid-list-item profile-stats"): h4 76
+    li(class="grid-list-item profile-stats"): h4 237
+    li(class="grid-list-item profile-stats"): h4 30
+    br
+    li(class="grid-list-item profile-stats"): h4 Follower
+    li(class="grid-list-item profile-stats"): h4 Points
+    li(class="grid-list-item profile-stats"): h4 Challenges
+    br
+    br
     ul
     for val, idx in fileList
-        li: img(src= '../../../' + val,
-                width=360)
+        li(class="grid-list-item"): img(src= '../' + folder + '/' + val,
+                width=352)
     else
         strong Empty
