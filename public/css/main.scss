@@ -128,6 +128,26 @@ $enable-gradients: true;
   }
 }
 
+// Footer
+footer {
+  height:inherit;
+}
+footer.navbar {
+  margin:0;
+  padding:15px;
+}
+
+footer a {
+  line-height:1.5;
+  & i {
+    font-size: 30px;
+  }
+  & span {
+    display:block;
+  }
+}
+
+
 // Alerts
 // -------------------------
 

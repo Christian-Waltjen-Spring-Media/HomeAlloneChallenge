@@ -13351,6 +13351,20 @@ textarea {
     padding-left: 15px !important;
     padding-right: 15px !important; } }
 
+footer {
+  height: inherit; }
+
+footer.navbar {
+  margin: 0;
+  padding: 15px; }
+
+footer a {
+  line-height: 1.5; }
+  footer a i {
+    font-size: 30px; }
+  footer a span {
+    display: block; }
+
 .alert {
   margin-top: 20px; }
 
