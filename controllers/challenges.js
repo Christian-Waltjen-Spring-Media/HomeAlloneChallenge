@@ -15,5 +15,8 @@ exports.getCreateChallenge = (req, res) => {
 };
 
 exports.postCreateChallenge = (req, res) => {
+
+  console.log(req.body.create);
+
   res.redirect(302, '/challenge');
 };
