@@ -5,9 +5,10 @@ const Challenge = require('../models/Challenge');
  * GET /
  * Home page.
  */
-exports.index = (req, res) => {
+exports.index = async (req, res) => {
   res.render('challenges', {
-    title: 'Challenges'
+    title: 'Challenges',
+    challenges: await Challenge.find()
   });
 };
 
