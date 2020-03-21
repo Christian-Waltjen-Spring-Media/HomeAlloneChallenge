@@ -18,4 +18,12 @@ block content
         for type in types
           option(value=type.id)= type.name
 
+    div
+      | Teilnehmer
+      br
+      for participantTag in participantTags
+        label(for='participantTags')
+          | #{participantTag}
+          input(type='checkbox', id='participantTags[]', name=participantTag, value=participantTag)
+
     input.form-control(type='submit', name='create')

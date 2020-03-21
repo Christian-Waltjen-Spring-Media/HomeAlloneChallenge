@@ -6,7 +6,8 @@ const challengeSchema = new mongoose.Schema({
   category: String,
   score: Number,
   type: String,
-  challengers: Array
+  challengers: Array,
+  participantTags: {}
 });
 
 const Challenge = mongoose.model('Challenge', challengeSchema);

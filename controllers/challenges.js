@@ -1,4 +1,5 @@
-const challengeTypes = require('../models/ChallengeTypes');
+const challengeTypes = require('../models/challenge/Types');
+const participantTags = require('../models/challenge/ParticipantTags');
 const Challenge = require('../models/Challenge');
 
 /**
@@ -17,14 +18,21 @@ exports.getCreateChallenge = (req, res) => {
 
   res.render('challenges/create', {
     title: 'Challenges',
-    types
+    types,
+    participantTags,
   });
 };
 
 exports.postCreateChallenge = async (req, res) => {
+
   const challenge = new Challenge({
     ...req.body,
     score: 100,
+    participantTags: {
+      together: req.body[participantTags.together],
+      other: req.body[participantTags.other],
+      self: req.body[participantTags.self]
+    },
     challengers: []
   });
 
