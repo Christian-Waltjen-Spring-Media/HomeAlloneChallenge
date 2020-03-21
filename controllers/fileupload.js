@@ -10,8 +10,7 @@ exports.index = (req, res) => {
 };
 
 exports.postUploadFile = (req, res) => {
-  const id = req.body.challengeId;
-  const url = `/results/${id}`;
+  const url = '/results';
   req.flash('success', { msg: 'File was uploaded successfully.' });
   res.redirect(url);
 };

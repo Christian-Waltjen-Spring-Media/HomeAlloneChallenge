@@ -158,7 +158,7 @@ app.post('/challenge/:challengeId', challengesController.postSolveChallenge);
 
 app.get('/file', passportConfig.isAuthenticated, lusca({ csrf: true }), fileUploadController.index);
 app.post('/file/', passportConfig.isAuthenticated, upload.single('myFile'), lusca({ csrf: true }), fileUploadController.postUploadFile);
-app.get('/results/:challengeId', passportConfig.isAuthenticated, resultsController.index);
+app.get('/results', passportConfig.isAuthenticated, resultsController.index);
 
 /**
  * API examples routes.
