@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const challengeSchema = new mongoose.Schema({
   configuration: {},
   title: '',
-  user: []
+  challengers: []
 });
 
 const User = mongoose.model('Challenge', challengeSchema);
