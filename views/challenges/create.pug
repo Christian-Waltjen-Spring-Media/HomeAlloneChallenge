@@ -14,10 +14,8 @@ block content
       input.form-control(type='textarea', name='description', id="description")
     label(for='type')
       | Type
-      input.form-control(type='select', name='type', id="type")
-
-    select.form-control(name='type')
-      for challengeType in challengeTypes
-        option(value=challengeType.id)= challengeType.name
+      select.form-control(name='type' id='type')
+        for type in types
+          option(value=type.id)= type.name
 
     input.form-control(type='submit', name='create')

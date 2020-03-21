@@ -1,4 +1,5 @@
 const challengeTypes = require('../models/ChallengeTypes');
+const Challenge = require('../models/Challenge');
 
 /**
  * GET /
@@ -15,13 +16,18 @@ exports.getCreateChallenge = (req, res) => {
 
   res.render('challenges/create', {
     title: 'Challenges',
-    challengeTypes: types
+    types
   });
 };
 
-exports.postCreateChallenge = (req, res) => {
+exports.postCreateChallenge = async (req, res) => {
+  const challenge = new Challenge({
+    ...req.body,
+    score: 100,
+    challengers: []
+  });
 
-  console.log(req);
+  challenge.save();
 
   res.redirect(302, '/challenge');
 };
