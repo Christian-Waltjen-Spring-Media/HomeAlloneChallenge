@@ -6,6 +6,6 @@ const challengeSchema = new mongoose.Schema({
   challengers: []
 });
 
-const User = mongoose.model('Challenge', challengeSchema);
+const Challenge = mongoose.model('Challenge', challengeSchema);
 
-module.exports = User;
+module.exports = Challenge;
