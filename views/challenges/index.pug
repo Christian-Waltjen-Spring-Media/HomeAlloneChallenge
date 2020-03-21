@@ -5,4 +5,4 @@ block content
     h3 Challenges
   ul
     each challenge in challenges
-      li=challenge.title
+      li: a(href= "/challenge/" + challenge.id) #{challenge.title}

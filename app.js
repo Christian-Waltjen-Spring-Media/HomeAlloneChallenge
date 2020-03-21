@@ -150,6 +150,8 @@ app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userControl
 app.get('/challenges', challengesController.index);
 app.get('/challenge', challengesController.getCreateChallenge);
 app.post('/challenge', challengesController.postCreateChallenge);
+app.get('/challenge/:challengeId', challengesController.getChallenge);
+app.post('/challenge/:challengeId', challengesController.postSolveChallenge);
 
 /**
  * API examples routes.

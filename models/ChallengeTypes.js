@@ -1,5 +1,4 @@
 
 module.exports = {
-  timeBased: 'timeBased',
-  hitBased: 'hitBased',
+  upload: 'upload',
 };

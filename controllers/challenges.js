@@ -32,3 +32,22 @@ exports.postCreateChallenge = async (req, res) => {
 
   res.redirect(302, '/challenge');
 };
+
+exports.getChallenge = async (req, res) => {
+  const challenge = await Challenge.findOne({ _id: req.params.challengeId });
+
+  console.log('challenge type', challenge.type);
+
+  res.render(`challenges/types/${challenge.type}`, {
+    challenge
+  });
+};
+
+exports.postSolveChallenge = async (req, res) => {
+  const challenge = Challenge.find({ _id: req.params.challengeId });
+
+  challenge.challengers.push(req.user._id);
+  challenge.save();
+
+  res.redirect(302, `/challenge/${challenge._id}`);
+};
