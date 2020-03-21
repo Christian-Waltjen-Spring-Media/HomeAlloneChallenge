@@ -1,12 +1,11 @@
 const mongoose = require('mongoose');
 
 const challengeSchema = new mongoose.Schema({
-  configuration: {},
-  title: '',
-  description: '',
-  score: 100,
-  type: '',
-  challengers: []
+  title: String,
+  description: String,
+  score: Number,
+  type: String,
+  challengers: Array
 });
 
 const Challenge = mongoose.model('Challenge', challengeSchema);
