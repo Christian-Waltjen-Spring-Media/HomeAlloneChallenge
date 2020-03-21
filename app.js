@@ -34,6 +34,8 @@ const userController = require('./controllers/user');
 const apiController = require('./controllers/api');
 const contactController = require('./controllers/contact');
 const challengesController = require('./controllers/challenges');
+const fileUploadController = require('./controllers/fileupload');
+const resultsController = require('./controllers/results');
 
 /**
  * API keys and Passport configuration.
@@ -66,6 +68,7 @@ app.set('host', process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0');
 app.set('port', process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+app.use(express.static('uploads'));
 app.use(expressStatusMonitor());
 app.use(compression());
 app.use(sass({
@@ -89,7 +92,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 app.use((req, res, next) => {
-  if (req.path === '/api/upload') {
+  if (req.path === '/api/upload' || '/file') {
     // Multer multipart/form-data handling needs to occur before the Lusca CSRF check.
     next();
   } else {
@@ -152,6 +155,10 @@ app.get('/challenge', challengesController.getCreateChallenge);
 app.post('/challenge', challengesController.postCreateChallenge);
 app.get('/challenge/:challengeId', challengesController.getChallenge);
 app.post('/challenge/:challengeId', challengesController.postSolveChallenge);
+
+app.get('/file', passportConfig.isAuthenticated, lusca({ csrf: true }), fileUploadController.index);
+app.post('/file/', passportConfig.isAuthenticated, upload.single('myFile'), lusca({ csrf: true }), fileUploadController.postUploadFile);
+app.get('/results/:challengeId', passportConfig.isAuthenticated, resultsController.index);
 
 /**
  * API examples routes.

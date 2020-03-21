@@ -13255,6 +13255,9 @@ body {
   margin-bottom: 75px;
   font-size: 14px; }
 
+li {
+  list-style-type: none; }
+
 footer {
   position: absolute;
   bottom: 0;
