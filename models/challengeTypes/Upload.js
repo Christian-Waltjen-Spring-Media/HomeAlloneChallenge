@@ -16,7 +16,6 @@ const uploadFile = (uploadFile, userId) => new Promise(((resolve) => {
 exports.solve = async (req, res) =>
   uploadFile(req.file, req.user)
     .then(() => {
-      const url = '/challenges/types';
       req.flash('success', { msg: 'File was uploaded successfully.' });
     });
 
