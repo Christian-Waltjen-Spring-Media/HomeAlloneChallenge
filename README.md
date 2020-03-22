@@ -9,24 +9,21 @@ To interrupt this lethargy the user will be activated to solve challenges agains
 ### Mockups
 ![GitHub Logo](./docs/mockups.jpg)
 
-### Special Thanks:
-This Project based on: [Hackathon Starter](https://github.com/sahat/hackathon-starter)
-
 ### Contributers:
 
-Katja Barck	
-Maren Engelke
-[Lena Flottow](https://www.behance.net/Flottow_design)	
-Sabrina Gehrke
-Johannes Hauenschild
-Nicole Heinze
-Lars Kaiser
-[Philipp Renerig](mailto:philipp@renerig.de)
-David Redlich (dre)
-Christian Waltjen
-Jana Wessely
+Katja Barck  
+Maren Engelke  
+[Lena Flottow](https://www.behance.net/Flottow_design)  	
+Sabrina Gehrke  
+Johannes Hauenschild  
+Nicole Heinze  
+Lars Kaiser  
+[Philipp Renerig](mailto:philipp@renerig.de)  
+David Redlich (dre)  
+Christian Waltjen  
+Jana Wessely  
 
-### Additional Help
-
+### Special Thanks:
 [Sascha Krüger](https://www.saschakrueger.de/)
 
+This Project based on: [Hackathon Starter](https://github.com/sahat/hackathon-starter)
