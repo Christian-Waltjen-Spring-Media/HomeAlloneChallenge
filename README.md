@@ -1,13 +1,13 @@
-# GOHOMA
+# GOHOMA[](#gohoma)
 
 This prototype is a web-application to motivate housebound people to solve challenges against oneanother.
 
-## Details
+## Details:
 When people have to stay in a small place they tend to become listless and sluggish.
 To interrupt this lethargy the user will be activated to solve challenges against themselves, friends and others.
 
-### Mockups
-![GitHub Logo](./docs/mockups.jpg)
+### Mockups:
+![gohoma-mockups](./docs/mockups.jpg)
 
 ### Contributers:
 
