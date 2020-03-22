@@ -2,7 +2,7 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const fs = require('fs');
 const CsvReadableStream = require('csv-reader');
-const Challenge = require('./mongodb/Challenges.csv');
+const Challenge = require('./models/Challenge');
 const ParticipantTypes = require('./models/challenge/ParticipantTags');
 const ChallengeTypes = require('./models/challenge/Types');
 
@@ -31,7 +31,7 @@ function getParticipantKey(value) {
   }
 }
 
-const stream = fs.createReadStream('./mongo/Challenges.csv', 'utf8')
+const stream = fs.createReadStream('./mongodb/Challenges.csv', 'utf8')
   .pipe(CsvReadableStream({ parseNumbers: true, parseBooleans: true, trim: true }));
 
 mongoose.connect(process.env.MONGODB_URI);

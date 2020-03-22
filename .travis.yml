@@ -11,5 +11,5 @@ install:
   - npm install
 script:
   - npm run lint
-  - npm run init-db
   - npm test
+  - docker-compose run --rm web npm run init-db
