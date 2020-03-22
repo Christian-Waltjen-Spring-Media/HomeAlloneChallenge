@@ -14,17 +14,17 @@ This Project based on: [Hackathon Starter](https://github.com/sahat/hackathon-st
 
 ### Contributers:
 
-Philipp Renerig
-Jana Wessely
-Lars Kaiser
-Nicole Heinze
-[Lena Flottow](https://www.behance.net/Flottow_design)	
-Sabrina Gehrke
-Christian Waltjen
-Johannes Hauenschild
-David Redlich (dre)
 Katja Barck	
 Maren Engelke
+[Lena Flottow](https://www.behance.net/Flottow_design)	
+Sabrina Gehrke
+Johannes Hauenschild
+Nicole Heinze
+Lars Kaiser
+[Philipp Renerig](mailto:philipp@renerig.de)
+David Redlich (dre)
+Christian Waltjen
+Jana Wessely
 
 ### Additional Help
 
