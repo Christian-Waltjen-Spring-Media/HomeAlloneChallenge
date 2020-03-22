@@ -22,6 +22,7 @@ body {
   margin-bottom: 75px;
   font-size: 14px;
   background-color:#000A3A;
+  color: #fff;
 }
 
 li{
@@ -110,6 +111,17 @@ $enable-gradients: true;
     $btn-raised-color
   )
 }
+.apptitle{
+  font-size: 5.6rem;
+}
+
+.title{
+  font-size: 2.8rem;
+}
+
+.subtitle {
+  font-size: 1.6rem;
+}
 
 .profile-stats {
   width:30%;
@@ -126,6 +138,15 @@ $enable-gradients: true;
   img {
     width: 100%;
   }
+}
+
+.list-item li{
+  padding: 16px 0 4px 0;
+  margin: 2px;
+}
+.list-item li:hover{
+  background: rgba(55,55,55,1);
+  margin: 2px;
 }
 
 /*

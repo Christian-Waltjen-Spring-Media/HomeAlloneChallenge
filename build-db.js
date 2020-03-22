@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const fs = require('fs');
 const CsvReadableStream = require('csv-reader');
 const Challenge = require('./models/Challenge');
+const ChallengeCategory = require('./models/ChallengeCategory');
 const ParticipantTypes = require('./models/challenge/ParticipantTags');
 const ChallengeTypes = require('./models/challenge/Types');
 
@@ -48,6 +49,42 @@ const stream = fs.createReadStream('./mongodb/Challenges.csv', 'utf8')
 
 mongoose.connect(process.env.MONGODB_URI);
 mongoose.connection.on('open', async () => {
+  const challengeCategoryList = [{
+    _id: 1,
+    name: 'Zuhause / @home',
+    description: ''
+  }, {
+    _id: 2,
+    name: 'Roberts Koch-Institut',
+    description: ''
+  }, {
+    _id: 3,
+    name: 'kreativer Kopf/Einfallsreichtum',
+    description: ''
+  }, {
+    _id: 4,
+    name: 'Know-how',
+    description: ''
+  }, {
+    _id: 5,
+    name: 'Move move move',
+    description: ''
+  }, {
+    _id: 6,
+    name: 'Do it for yourself',
+    description: ''
+  }, {
+    _id: 7,
+    name: 'Soziale Kontakte',
+    description: ''
+  }];
+
+  const challengeCategoryBulk = ChallengeCategory.collection.initializeOrderedBulkOp();
+  challengeCategoryList.forEach((challengeCategory) => {
+    challengeCategoryBulk.insert(challengeCategory);
+  });
+  challengeCategoryBulk.execute();
+
   let challengesBulk = Challenge.collection.initializeOrderedBulkOp();
   let counter = 0;
 

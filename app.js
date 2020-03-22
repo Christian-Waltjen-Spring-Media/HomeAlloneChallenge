@@ -34,7 +34,7 @@ const userController = require('./controllers/user');
 const apiController = require('./controllers/api');
 const contactController = require('./controllers/contact');
 const challengesController = require('./controllers/challenges');
-
+const categoriesController = require('./controllers/categories');
 /**
  * API keys and Passport configuration.
  */
@@ -155,8 +155,8 @@ app.get('/challenge', passportConfig.isAuthenticated, challengesController.getCr
 app.post('/challenge', passportConfig.isAuthenticated, challengesController.postCreateChallenge);
 app.get('/challenge/:challengeId', passportConfig.isAuthenticated, lusca({ csrf: true }), challengesController.getChallenge);
 app.post('/challenge/:challengeId', upload.single('myFile'), lusca({ csrf: true }), challengesController.postSolveChallenge);
-app.get('/challenges/types', passportConfig.isAuthenticated, challengesController.uploads);
-
+app.get('/content', passportConfig.isAuthenticated, challengesController.uploads);
+app.get('/categories', passportConfig.isAuthenticated, categoriesController.index);
 
 /**
  * API examples routes.

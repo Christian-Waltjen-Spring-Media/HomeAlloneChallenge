@@ -2,7 +2,12 @@ extends ../layout
 
 block content
   .pb-2.mt-2.mb-4.border-bottom
-    h3 Challenges
+  h3(class='center title') #{title}
+  h4(class='center subtitle') #{subtitle}
+  br
+  br
   ul
+    each category in categories
+      a(class="list-item" href= "/challenges/" + flag + '/' + category.name): li(class='card padding center'): h3 #{category.name}
     each challenge in challenges
-      li: a(href= "/challenge/" + challenge.id) #{challenge.category} | #{challenge.title}
+      a(class="list-item" href= "/challenge/" + challenge.id): li(class='card padding center'): h4 #{challenge.title}

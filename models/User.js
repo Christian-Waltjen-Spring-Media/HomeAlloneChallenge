@@ -29,7 +29,8 @@ const userSchema = new mongoose.Schema({
     website: String,
     picture: String
   }
-}, { timestamps: true });
+}, { timestamps: true
+});
 
 /**
  * Password hash middleware.

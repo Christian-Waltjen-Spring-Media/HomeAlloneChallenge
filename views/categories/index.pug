@@ -1,0 +1,8 @@
+extends ../layout
+
+block content
+  .pb-2.mt-2.mb-4.border-bottom
+  h3 #{title}
+  ul(class="grid-list")
+    each category in categories
+      li(class="grid-list-item"): span #{category.name}

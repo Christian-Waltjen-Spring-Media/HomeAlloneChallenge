@@ -7,7 +7,6 @@ const uploadFile = (uploadFile, userId) => new Promise(((resolve) => {
     fs.mkdirSync(challengeFolderPath);
   }
   const newFilePath = `${challengeFolderPath}/${uploadFile.filename}`;
-
   fs.rename(oldFilePath, newFilePath, () => {
     resolve();
   });
