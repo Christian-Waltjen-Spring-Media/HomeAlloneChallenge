@@ -2,7 +2,7 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const fs = require('fs');
 const CsvReadableStream = require('csv-reader');
-const Challenge = require('./models/Challenge');
+const Challenge = require('./mongodb/Challenges.csv');
 const ParticipantTypes = require('./models/challenge/ParticipantTags');
 const ChallengeTypes = require('./models/challenge/Types');
 
