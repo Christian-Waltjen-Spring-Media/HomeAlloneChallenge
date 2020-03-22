@@ -90,14 +90,10 @@ exports.uploads = (req, res) => {
   });
 };
 
-exports.postSolveChallenge = (req, res) => {
-  const challenge = Challenge.find({ _id: req.params.challengeId });
+exports.postSolveChallenge = async (req, res) => {
+  const challenge = await Challenge.findOne({ _id: req.params.challengeId });
   const challengeStrategy = TypeFactory.getStrategy(challenge);
 
-  challengeStrategy.solve()
-    .then(() => {
-      challenge.challengers.push(req.user._id);
-      challenge.save();
-    })
-    .then(() => res.redirect(302, '/challenges/types'));
+  await challengeStrategy.solve();
+  res.redirect(302, '/challenges/types');
 };
