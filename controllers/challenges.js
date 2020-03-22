@@ -2,6 +2,7 @@ const fs = require('fs');
 const challengeTypes = require('../models/challenge/Types');
 const participantTags = require('../models/challenge/ParticipantTags');
 const Challenge = require('../models/Challenge');
+const TypeFactory = require('../models/challengeTypes/Factory');
 
 /**
  * GET /
@@ -90,21 +91,13 @@ exports.uploads = (req, res) => {
 };
 
 exports.postSolveChallenge = (req, res) => {
-  // const challenge = Challenge.find({ _id: req.params.challengeId });
-  // challenge.challengers.push(req.user._id);
-  // challenge.save();
-  // res.redirect(302, `/challenge/${challenge._id}`);
+  const challenge = Challenge.find({ _id: req.params.challengeId });
+  const challengeStrategy = TypeFactory.getStrategy(challenge);
 
-  const oldFilePath = req.file.path;
-  const challengeFolderPath = `./uploads/${req.user._id}`;
-  if (!fs.existsSync(challengeFolderPath)) {
-    fs.mkdirSync(challengeFolderPath);
-  }
-  const newFilePath = `${challengeFolderPath}/${req.file.filename}`;
-
-  fs.rename(oldFilePath, newFilePath, () => {
-    const url = '/challenges/types';
-    req.flash('success', { msg: 'File was uploaded successfully.' });
-    res.redirect(302, url);
-  });
+  challengeStrategy.solve()
+    .then(() => {
+      challenge.challengers.push(req.user._id);
+      challenge.save();
+    })
+    .then(() => res.redirect(302, '/challenges/types'));
 };
