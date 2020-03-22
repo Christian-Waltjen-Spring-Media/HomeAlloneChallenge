@@ -31,6 +31,18 @@ function getParticipantKey(value) {
   }
 }
 
+const fieldMapping = {
+  Kategorie: 0,
+  'Alternativer Kategoriename': 1,
+  Name: 2,
+  'Alternativer name': 3,
+  Beschreibung: 4,
+  'Art der Herausforderung 1': 5,
+  'Herausforderungsopt. 2': 6,
+  'Herausforderungsopt. 3': 7,
+  Ergebnistyp: 16
+};
+
 const stream = fs.createReadStream('./mongodb/Challenges.csv', 'utf8')
   .pipe(CsvReadableStream({ parseNumbers: true, parseBooleans: true, trim: true }));
 
@@ -40,11 +52,12 @@ mongoose.connection.on('open', async () => {
   let counter = 0;
 
   stream.on('data', (data) => {
+    console.log('data', data);
 
     const participantTagList = [
-      getParticipantKey(data['Art der Herausforderung 1']),
-      getParticipantKey(data['Herausforderungsopt. 2']),
-      getParticipantKey(data['Herausforderungsopt. 3']),
+      getParticipantKey(data[fieldMapping['Art der Herausforderung 1']]),
+      getParticipantKey(data[fieldMapping['Herausforderungsopt. 2']]),
+      getParticipantKey(data[fieldMapping['Herausforderungsopt. 3']]),
     ].filter(Boolean);
 
     const participantTags = participantTagList.reduce(((previousValue, currentValue) => {
@@ -54,10 +67,10 @@ mongoose.connection.on('open', async () => {
 
     challengesBulk.insert({
       challengers: [],
-      title: data['Alternativer name'] === '' ? data.Name : data['Alternativer name'],
-      description: data.Beschreibung,
-      category: data.Kategorie,
-      type: mapResultTypeToChallengeType[data.Ergebnistyp],
+      title: data[fieldMapping['Alternativer name']] === '' ? data[fieldMapping.Name] : data[fieldMapping['Alternativer name']],
+      description: data[fieldMapping.Beschreibung],
+      category: data[fieldMapping.Kategorie],
+      type: mapResultTypeToChallengeType[data[fieldMapping.Ergebnistyp]],
       score: 100,
       participantTags,
     });
