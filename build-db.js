@@ -67,7 +67,7 @@ mongoose.connection.on('open', async () => {
       challengers: [],
       title: data[fieldMapping['Alternativer name']] === '' ? data[fieldMapping.Name] : data[fieldMapping['Alternativer name']],
       description: data[fieldMapping.Beschreibung],
-      category: data[fieldMapping.Kategorie],
+      category: data[fieldMapping['Alternativer Kategoriename']] === '' ? data[fieldMapping.Kategorie] : data[fieldMapping['Alternativer Kategoriename']],
       type: mapResultTypeToChallengeType[data[fieldMapping.Ergebnistyp]],
       score: 100,
       participantTags,
