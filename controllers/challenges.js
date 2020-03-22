@@ -14,6 +14,27 @@ exports.index = async (req, res) => {
   });
 };
 
+exports.indexFlagged = async (req, res) => {
+  const challengeSelect = {};
+  challengeSelect[`participantTags.${req.params.flag}`] = { $exists: true };
+
+  res.render('challenges', {
+    title: 'Challenges',
+    challenges: await Challenge.find(challengeSelect)
+  });
+};
+
+exports.indexFlaggedCategory = async (req, res) => {
+  const challengeSelect = {};
+  challengeSelect[`participantTags.${req.params.flag}`] = { $exists: true };
+  challengeSelect.category = req.params.category;
+
+  res.render('challenges', {
+    title: 'Challenges',
+    challenges: await Challenge.find(challengeSelect)
+  });
+};
+
 exports.getCreateChallenge = (req, res) => {
   const types = Object.keys(challengeTypes).map((key) => ({ id: key, name: challengeTypes[key] }));
 
@@ -81,7 +102,7 @@ exports.postSolveChallenge = (req, res) => {
   }
   const newFilePath = `${challengeFolderPath}/${req.file.filename}`;
 
-  fs.rename(oldFilePath, newFilePath, function () {
+  fs.rename(oldFilePath, newFilePath, () => {
     const url = '/challenges/types';
     req.flash('success', { msg: 'File was uploaded successfully.' });
     res.redirect(302, url);

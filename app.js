@@ -149,6 +149,8 @@ app.post('/account/delete', passportConfig.isAuthenticated, userController.postD
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
 
 app.get('/challenges', challengesController.index);
+app.get('/challenges/:flag', challengesController.indexFlagged);
+app.get('/challenges/:flag/:category', challengesController.indexFlaggedCategory);
 app.get('/challenge', passportConfig.isAuthenticated, challengesController.getCreateChallenge);
 app.post('/challenge', passportConfig.isAuthenticated, challengesController.postCreateChallenge);
 app.get('/challenge/:challengeId', passportConfig.isAuthenticated, lusca({ csrf: true }), challengesController.getChallenge);
