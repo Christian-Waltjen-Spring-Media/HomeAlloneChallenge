@@ -52,8 +52,6 @@ mongoose.connection.on('open', async () => {
   let counter = 0;
 
   stream.on('data', (data) => {
-    console.log('data', data);
-
     const participantTagList = [
       getParticipantKey(data[fieldMapping['Art der Herausforderung 1']]),
       getParticipantKey(data[fieldMapping['Herausforderungsopt. 2']]),
