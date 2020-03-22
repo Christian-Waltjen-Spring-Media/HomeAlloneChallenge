@@ -13,7 +13,7 @@ To interrupt this lethargy the user will be activated to solve challenges agains
 
 Katja Barck  
 Maren Engelke  
-[Lena Flottow](https://www.behance.net/Flottow_design)  	
+[Lena Flottow](https://www.behance.net/Flottow_design)  
 Sabrina Gehrke  
 Johannes Hauenschild  
 Nicole Heinze  
