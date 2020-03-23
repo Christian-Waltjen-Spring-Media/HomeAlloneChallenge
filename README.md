@@ -9,6 +9,10 @@ To interrupt this lethargy the user will be activated to solve challenges agains
 ### Mockups:
 ![gohoma-mockups](./docs/mockups.jpg)
 
+### Current State of Development:
+This implementation is built to prove technological feasibility.
+Further development will have to implement error prevention and improve the level of security.
+
 ### Contributers:
 
 Katja Barck  
